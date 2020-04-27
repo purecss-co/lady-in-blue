@@ -1,0 +1,1009 @@
+// colors
+$bg-color: #fff;
+$main-color: #1e3fb0;
+$hair-color: #000;
+
+@mixin shape($width, $height, $background) {
+  width: $width;
+  height: $height;
+  background: $background;
+}
+
+@mixin breakpoint($point) {
+  @if $point==tablet {
+    @media (max-width: 1024px) and (min-width: 768px) {
+      @content;
+    }
+  } @else if $point==mobile {
+    @media (max-width: 480px) and (min-width: 320px) {
+      @content;
+    }
+  }
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: $bg-color;
+  overflow: hidden;
+
+  * {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    box-sizing: border-box;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+    }
+  }
+}
+
+.portrait {
+  @include shape(74.5vmin, 93.5vmin, transparent);
+  overflow: hidden;
+
+  .curtain {
+    @include shape(30vmin, 80vmin, $main-color);
+    border-bottom-right-radius: 100%;
+    top: -38vmin;
+    left: -57vmin;
+    transform: rotate(5deg);
+
+    &::before {
+      @include shape(30vmin, 80vmin, $main-color);
+      border-bottom-left-radius: 100%;
+      top: -7vmin;
+      right: -56vmin;
+      transform: rotate(-8deg);
+    }
+  }
+
+  .hair {
+    @include shape(28vmin, 14vmin, $hair-color);
+    top: -63.5vmin;
+    left: -5.5vmin;
+    z-index: 3;
+    border-top-right-radius: 90%;
+    border-bottom-right-radius: 100%;
+    border-top-left-radius: 100%;
+    transform: rotate(-21deg);
+
+    &::before {
+      @include shape(10vmin, 10vmin, $hair-color);
+      left: 18.5vmin;
+      top: 2.9vmin;
+      border-top-right-radius: 10vmin;
+      border-bottom-right-radius: 10vmin;
+      transform: rotate(-5deg);
+    }
+
+    &::after {
+      @include shape(15vmin, 40vmin, $hair-color);
+      left: 13.8vmin;
+      top: 9.7vmin;
+      border-top-right-radius: 7.5vmin;
+      transform: rotate(19.5deg);
+      border-bottom-left-radius: 100%;
+    }
+
+    i:nth-of-type(1) {
+      z-index: 3;
+      @include shape(12vmin, 35vmin, $hair-color);
+      transform: rotate(21deg);
+      left: 17.9vmin;
+      top: 42vmin;
+      border-top-right-radius: 9vmin;
+
+      &::before {
+        @include shape(2vmin, 4vmin, $hair-color);
+        top: 34vmin;
+        left: 3.2vmin;
+        transform: rotate(35deg);
+      }
+
+      &::after {
+        @include shape(10vmin, 12vmin, $hair-color);
+        top: 35vmin;
+        left: 3.2vmin;
+        border-top-left-radius: 3vmin;
+      }
+    }
+
+    i:nth-of-type(2) {
+      z-index: 3;
+      @include shape(12vmin, 11vmin, $hair-color);
+      transform: rotate(19deg) skewY(5deg);
+      top: 98vmin;
+      left: 1.8vmin;
+      border-top-left-radius: 0vmin;
+      border-bottom-left-radius: 80%;
+
+      &::before {
+        @include shape(2vmin, 5.5vmin, $hair-color);
+        transform: skewY(-5deg);
+        top: -5vmin;
+        border-top-left-radius: 90%;
+      }
+
+      &::after {
+        @include shape(2.5vmin, 7vmin, $hair-color);
+        transform: rotate(-75deg) skewY(-5deg);
+        left: 9vmin;
+        top: 6.7vmin;
+      }
+    }
+
+    i:nth-of-type(3) {
+      z-index: 3;
+      @include shape(6vmin, 4vmin, $bg-color);
+      top: 116.4vmin;
+      left: 16.4vmin;
+      transform: rotate(33deg) skewY(5deg) skewX(5deg);
+
+      &::before {
+        @include shape(4.5vmin, 21.5vmin, $bg-color);
+        transform: rotate(-10deg) skewX(-5deg);
+        top: -17.3vmin;
+        left: -4.4vmin;
+        border-top-right-radius: 30%;
+        border-bottom-left-radius: 100%;
+      }
+
+      &::after {
+        @include shape(2vmin, 2vmin, $bg-color);
+        transform: rotate(-30deg);
+        top: 1.7vmin;
+        left: -0.6vmin;
+      }
+    }
+
+    i:nth-of-type(4) {
+      @include shape(15vmin, 27vmin, $hair-color);
+      transform: rotate(22deg);
+      top: 12vmin;
+      left: -30.5vmin;
+      border-top-left-radius: 90%;
+
+      &::before {
+        @include shape(14vmin, 18vmin, $hair-color);
+        top: 17.5vmin;
+        left: -1vmin;
+        transform: skewX(-10deg);
+      }
+
+      &::after {
+        @include shape(7vmin, 14vmin, $hair-color);
+        top: 24vmin;
+        left: -3vmin;
+        border-top-left-radius: 80%;
+        border-bottom-left-radius: 100%;
+        transform: rotate(12deg);
+      }
+    }
+
+    i:nth-of-type(5) {
+      @include shape(5vmin, 5vmin, $hair-color);
+      transform: rotate(22deg) skewX(-20deg);
+      top: 28vmin;
+      left: -49.5vmin;
+
+      &::before {
+        @include shape(11.8vmin, 18vmin, $hair-color);
+        top: 7vmin;
+        left: 5.8vmin;
+        transform: rotate(-40deg);
+        border-top-left-radius: 1vmin;
+      }
+
+      &::after {
+        @include shape(18vmin, 26vmin, $hair-color);
+        top: 18vmin;
+        left: 2vmin;
+        transform: rotate(15deg);
+      }
+    }
+
+    i:nth-of-type(6) {
+      @include shape(6vmin, 26vmin, $bg-color);
+      transform: rotate(30deg) skewX(-25deg);
+      top: 75vmin;
+      left: -94.5vmin;
+      border-top-right-radius: 5vmin;
+
+      &::before {
+        @include shape(5.5vmin, 14vmin, $bg-color);
+        border-top-right-radius: 60%;
+        border-bottom-right-radius: 50%;
+        top: 7vmin;
+        left: 2.3vmin;
+        transform: rotate(58deg) skewX(45deg);
+      }
+
+      &::after {
+        @include shape(5vmin, 8vmin, $bg-color);
+        border-top-right-radius: 5vmin;
+        border-bottom-left-radius: 10%;
+        border-bottom-right-radius: 2vmin;
+        left: 1.65vmin;
+        top: -3vmin;
+        z-index: -1;
+        transform: rotate(22deg) skewX(40deg);
+      }
+    }
+
+    i:nth-of-type(7) {
+      @include shape(30vmin, 9vmin, $hair-color);
+      top: 101vmin;
+      left: -85vmin;
+      transform: rotate(21deg);
+
+      &::before {
+        @include shape(5vmin, 5vmin, $bg-color);
+        transform: rotate(35deg);
+        left: -0.6vmin;
+        top: -2.2vmin;
+      }
+
+      &::after {
+        @include shape(5vmin, 5vmin, $bg-color);
+        transform: rotate(30deg);
+        left: -1.4vmin;
+        top: -1.4vmin;
+      }
+    }
+
+    i:nth-of-type(8) {
+      @include shape(18vmin, 25vmin, $hair-color);
+      top: 98vmin;
+      left: -56vmin;
+      transform: rotate(21deg);
+      border-top-right-radius: 50%;
+      border-bottom-right-radius: 50%;
+
+      &::before {
+        @include shape(19vmin, 10vmin, $hair-color);
+        border-top-right-radius: 100%;
+        transform: rotate(55deg);
+        top: -2vmin;
+        left: 3vmin;
+      }
+
+      &::after {
+        @include shape(19vmin, 10vmin, $hair-color);
+        border-top-right-radius: 100%;
+        transform: rotate(55deg);
+        top: 1vmin;
+        left: 4vmin;
+      }
+    }
+
+    i:nth-of-type(9) {
+      @include shape(5vmin, 15vmin, $hair-color);
+      transform: rotate(10deg);
+      top: 50vmin;
+      left: -39vmin;
+    }
+  }
+
+  .ear {
+    @include shape(2vmin, 10vmin, $main-color);
+    z-index: 3;
+    top: -19.8vmin;
+    left: 30.8vmin;
+    transform: rotate(20deg);
+    border-top-left-radius: 1vmin;
+    border-top-right-radius: 1vmin;
+
+    &::before {
+      @include shape(1.5vmin, 2.5vmin, $hair-color);
+      transform: rotate(-20deg);
+      left: 1.75vmin;
+      top: -0.4vmin;
+    }
+
+    i:nth-of-type(1) {
+      @include shape(2vmin, 2vmin, $main-color);
+      top: -3.5vmin;
+      left: -3.5vmin;
+      transform: rotate(30deg);
+
+      &::before {
+        @include shape(2.8vmin, 8vmin, $main-color);
+        transform: rotate(-31deg);
+        left: 3.6vmin;
+        top: -0.4vmin;
+        border-top-right-radius: 1vmin;
+        border-bottom-right-radius: 1.2vmin;
+      }
+
+      &::after {
+        @include shape(2.8vmin, 8vmin, $main-color);
+        transform: rotate(-31deg);
+        left: 2vmin;
+      }
+    }
+
+    i:nth-of-type(2) {
+      @include shape(2vmin, 5vmin, $main-color);
+      border-top-right-radius: 100%;
+      transform: rotate(5deg) skewY(40deg);
+      top: -1.5vmin;
+      left: 1.2vmin;
+    }
+  }
+
+  .earring {
+    @include shape(5vmin, 15vmin, transparent);
+    z-index: 3;
+    border: 0.5vmin solid $bg-color;
+    border-radius: 50%;
+    left: 29vmin;
+    top: 4.4vmin;
+  }
+
+  .face {
+    z-index: 4;
+    @include shape(20.6vmin, 15vmin, $main-color);
+    top: -44.8vmin;
+    left: 8.5vmin;
+    border-top-right-radius: 11.6vmin;
+    border-top-left-radius: 1vmin;
+    transform: skewX(-10deg);
+
+    &::before {
+      @include shape(4vmin, 15vmin, $main-color);
+      border-top-left-radius: 100%;
+      top: 0.5vmin;
+      left: -2.3vmin;
+      transform: rotate(-11deg) skewX(-5deg);
+    }
+
+    &::after {
+      @include shape(4vmin, 9vmin, $main-color);
+      top: 8vmin;
+      left: 18.5vmin;
+      border-top-right-radius: 100%;
+      transform: rotate(3deg) skewY(40deg);
+    }
+
+    i:nth-of-type(1) {
+      z-index: 3;
+      @include shape(4vmin, 9vmin, $main-color);
+      top: 11vmin;
+      left: 18.8vmin;
+      border-top-right-radius: 100%;
+      transform: skewY(5deg);
+
+      &::before {
+        @include shape(2vmin, 3.5vmin, $main-color);
+        left: 2.2vmin;
+        top: 7vmin;
+        transform: rotate(-7deg);
+      }
+
+      &::after {
+        @include shape(22vmin, 15vmin, $main-color);
+        left: -19vmin;
+        top: 7vmin;
+        transform: rotate(-7deg);
+        border-bottom-right-radius: 3vmin;
+      }
+    }
+
+    i:nth-of-type(2) {
+      z-index: 3;
+      @include shape(2vmin, 12vmin, $main-color);
+      left: -21.2vmin;
+      top: 20vmin;
+      transform: rotate(-4deg);
+
+      &::before {
+        @include shape(3vmin, 7vmin, $main-color);
+        top: 8vmin;
+        left: -0.5vmin;
+        transform: rotate(10deg);
+      }
+
+      &::after {
+        @include shape(3vmin, 6.5vmin, $main-color);
+        top: 12vmin;
+        left: -1.1vmin;
+        transform: rotate(-10deg) skewX(5deg);
+        border-top-left-radius: 100%;
+        border-bottom-left-radius: 100%;
+      }
+    }
+
+    i:nth-of-type(3) {
+      z-index: 3;
+      @include shape(2vmin, 4vmin, $main-color);
+      left: -21.9vmin;
+      top: 31.5vmin;
+      border-bottom-left-radius: 0.4vmin;
+      transform: rotate(15deg);
+
+      &::before {
+        @include shape(1.5vmin, 12vmin, $main-color);
+        top: 4vmin;
+        left: 4.6vmin;
+        transform: rotate(-49deg) skewX(2deg);
+        border-top-left-radius: 100%;
+      }
+
+      &::after {
+        @include shape(20vmin, 4vmin, $main-color);
+        top: 4.4vmin;
+        left: 3.5vmin;
+        transform: rotate(-15deg) skewX(30deg);
+      }
+    }
+
+    i:nth-of-type(4) {
+      z-index: 3;
+      @include shape(4vmin, 4vmin, $main-color);
+      top: 33.4vmin;
+      left: 19.7vmin;
+      transform: skewX(-10deg);
+
+      &::before {
+        @include shape(4vmin, 8vmin, $main-color);
+        transform: skew(15deg) rotate(35deg) skewY(30deg);
+        border-top-right-radius: 4vmin;
+        left: 0.3vmin;
+        top: 3vmin;
+      }
+
+      &::after {
+        @include shape(1vmin, 3vmin, $main-color);
+        transform: skew(15deg) rotate(35deg) skewY(30deg);
+        left: 2.5vmin;
+        top: 2.5vmin;
+      }
+    }
+  }
+
+  .eyebrow-left {
+    @include shape(5vmin, 1.2vmin, $hair-color);
+    z-index: 5;
+    top: -36.3vmin;
+    left: -13vmin;
+    transform: rotate(15deg) skewX(40deg);
+    border-bottom-right-radius: 0.5vmin;
+
+    &::before {
+      @include shape(3vmin, 0.3vmin, $main-color);
+      transform: rotate(-4deg) skewX(-40deg);
+      top: -0.1vmin;
+      left: 0.75vmin;
+    }
+  }
+
+  .eye {
+    @include shape(6vmin, 4.4vmin, $hair-color);
+    z-index: 5;
+    border-top-right-radius: 100%;
+    border-bottom-left-radius: 100%;
+    top: -29.2vmin;
+    left: -14.5vmin;
+    transform: rotate(-15deg);
+
+    &::before {
+      @include shape(5vmin, 3.8vmin, $main-color);
+      border-top-right-radius: 100%;
+      border-bottom-left-radius: 100%;
+      left: 0.95vmin;
+      top: 0.8vmin;
+      transform: rotate(-5deg);
+    }
+
+    &::after {
+      @include shape(2.7vmin, 2.7vmin, $hair-color);
+      border-radius: 50%;
+      left: 1.85vmin;
+      top: 1.2vmin;
+      transform: rotate(-2deg);
+    }
+
+    i:nth-of-type(1) {
+      @include shape(4vmin, 4vmin, $hair-color);
+      transform: rotate(20deg);
+      left: -7vmin;
+      top: -2vmin;
+      z-index: 6;
+
+      &::after {
+        @include shape(2.4vmin, 1vmin, $main-color);
+        transform: rotate(-2deg);
+        left: 4.8vmin;
+        top: 3.2vmin;
+      }
+    }
+  }
+
+  .eyebrow-right {
+    @include shape(6.8vmin, 1.2vmin, $hair-color);
+    z-index: 5;
+    top: -36.7vmin;
+    left: 14.6vmin;
+    transform: rotate(-15deg) skewX(-40deg);
+    border-bottom-left-radius: 0.5vmin;
+
+    &::before {
+      @include shape(7.5vmin, 0.6vmin, $main-color);
+      transform: rotate(5deg) skewX(40deg);
+      top: -0.4vmin;
+      left: -0.4vmin;
+    }
+
+    &::after {
+      @include shape(3vmin, 0.6vmin, $hair-color);
+      left: 6.6vmin;
+      top: 1.1vmin;
+      transform: rotate(25deg);
+    }
+
+    i:nth-of-type(1) {
+      z-index: 6;
+      @include shape(3.8vmin, 0.5vmin, $main-color);
+      transform: rotate(30deg) skewX(40deg);
+      top: 0.9vmin;
+      left: 6.2vmin;
+
+      &::before {
+        @include shape(2vmin, 0.5vmin, $main-color);
+        top: 0.1vmin;
+        left: 2vmin;
+        transform: rotate(7deg);
+      }
+    }
+  }
+
+  .eye-right {
+    left: 15vmin;
+    top: -29.2vmin;
+    transform: rotate(22deg) scaleX(-1);
+
+    i:nth-of-type(1) {
+      background: transparent;
+    }
+  }
+
+  .nose {
+    @include shape(1.45vmin, 0.8vmin, $hair-color);
+    z-index: 6;
+    top: -10.7vmin;
+    left: -3.8vmin;
+    border-top-right-radius: 1vmin;
+    border-top-left-radius: 0.8vmin;
+    border-bottom-left-radius: 0.5vmin;
+
+    &::before {
+      @include shape(1.2vmin, 0.8vmin, $bg-color);
+      left: 0.4vmin;
+      top: 0.3vmin;
+      border-top-left-radius: 0.6vmin;
+    }
+  }
+
+  .nose-right {
+    left: 2.8vmin;
+    transform: scaleX(-1);
+
+    &::before {
+      top: 0.4vmin;
+      background: $main-color;
+    }
+  }
+
+  .mouth {
+    @include shape(8vmin, 3vmin, $hair-color);
+    z-index: 6;
+    left: -0.2vmin;
+    top: 1.7vmin;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+
+    &::before {
+      width: 0;
+      height: 0;
+      border-top: 1.1vmin solid transparent;
+      border-left: 1.3vmin solid $hair-color;
+      border-bottom: 1.1vmin solid transparent;
+      left: 7.9vmin;
+      top: -0.3vmin;
+    }
+
+    &::after {
+      width: 0;
+      height: 0;
+      border-top: 1.1vmin solid transparent;
+      border-right: 1.3vmin solid $main-color;
+      border-bottom: 1.1vmin solid transparent;
+      left: -1.2vmin;
+      top: -0.3vmin;
+    }
+
+    i:nth-of-type(1) {
+      @include shape(4vmin, 1.8vmin, $main-color);
+      border-top-right-radius: 3.5vmin;
+      left: -4.4vmin;
+      top: -4.1vmin;
+      transform: rotate(-40deg);
+
+      &::before {
+        @include shape(4vmin, 1.8vmin, $hair-color);
+        border-top-left-radius: 3.5vmin;
+        transform: rotate(78deg);
+        left: 3.2vmin;
+        top: 2.6vmin;
+      }
+
+      &::after {
+        @include shape(6.8vmin, 2.4vmin, $main-color);
+        transform: rotate(43deg);
+        left: -1.7vmin;
+        top: 2.5vmin;
+        border-radius: 50%;
+      }
+    }
+
+    i:nth-of-type(2) {
+      @include shape(2.3vmin, 2.3vmin, $main-color);
+      border-top-right-radius: 50%;
+      border-bottom-right-radius: 50%;
+      left: 3.4vmin;
+      top: 0.7vmin;
+      transform: rotate(-5deg);
+
+      &::before {
+        @include shape(1.5vmin, 1vmin, $main-color);
+        transform: rotate(5deg);
+        left: -0.2vmin;
+        top: -0.1vmin;
+      }
+
+      &::after {
+        @include shape(1.2vmin, 1vmin, $main-color);
+        left: -5vmin;
+        top: -0.7vmin;
+      }
+    }
+
+    i:nth-of-type(3) {
+      @include shape(2vmin, 1vmin, $hair-color);
+      top: -3vmin;
+      left: 1vmin;
+
+      &::before {
+        @include shape(4.4vmin, 1vmin, $main-color);
+        transform: rotate(-22deg);
+        left: -1.9vmin;
+        top: -0.65vmin;
+        border-top-right-radius: 1vmin;
+        border-bottom-right-radius: 1vmin;
+      }
+
+      &::after {
+        @include shape(2vmin, 0.8vmin, $main-color);
+        transform: rotate(-15deg);
+        border-top-right-radius: 50%;
+        border-top-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        left: 0.4vmin;
+        top: -1.3vmin;
+      }
+    }
+
+    i:nth-of-type(4) {
+      @include shape(1vmin, 1.1vmin, $main-color);
+      border-top-right-radius: 50%;
+      border-bottom-right-radius: 100%;
+      top: -5.6vmin;
+      left: 2.8vmin;
+      transform: rotate(10deg);
+    }
+  }
+
+  .shadow-right {
+    z-index: 5;
+    top: 34.7vmin;
+    left: 8.5vmin;
+    @include shape(4.75vmin, 4.75vmin, $bg-color);
+    position: relative;
+    border-top-right-radius: 30%;
+    transform: rotate(-2deg) skewX(-30deg) scale(1, 0.866);
+
+    &::before {
+      @include shape(4.75vmin, 4.75vmin, $bg-color);
+      transform: rotate(-135deg) skewX(-45deg) scale(1.414, 0.707)
+        translate(0, -50%);
+      border-top-right-radius: 30%;
+    }
+
+    &::after {
+      @include shape(4.75vmin, 4.75vmin, $bg-color);
+      transform: rotate(135deg) skewY(-45deg) scale(0.707, 1.414) translate(50%);
+      border-top-right-radius: 30%;
+    }
+  }
+
+  .shadow-right-top {
+    z-index: 5;
+    @include shape(7.5vmin, 1.2vmin, $main-color);
+    top: -23.5vmin;
+    left: 14.5vmin;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    transform: rotate(-2deg);
+  }
+
+  .shadow-left {
+    z-index: 5;
+    @include shape(11.3vmin, 16vmin, $bg-color);
+    left: -3.8vmin;
+    top: 1.2vmin;
+    border-radius: 45%;
+    transform: rotate(-6deg);
+
+    &::before {
+      @include shape(2vmin, 13vmin, $bg-color);
+      top: -9vmin;
+      left: 5.3vmin;
+      transform: rotate(38deg);
+      border-top-right-radius: 70%;
+    }
+
+    &::after {
+      @include shape(1.5vmin, 10vmin, $bg-color);
+      left: 8.5vmin;
+      top: -7.9vmin;
+      transform: rotate(5deg);
+      border-top-left-radius: 70%;
+    }
+
+    i:nth-of-type(1) {
+      z-index: 5;
+      @include shape(1.02vmin, 1.1vmin, $bg-color);
+      border-radius: 50%;
+      top: -31.6vmin;
+      left: 8.6vmin;
+
+      &::before {
+        @include shape(3vmin, 5.8vmin, $bg-color);
+        top: 3.5vmin;
+        left: -3vmin;
+        transform: rotate(25deg);
+        border-top-right-radius: 2vmin;
+      }
+
+      &::after {
+        @include shape(2vmin, 2vmin, $main-color);
+        top: 9.9vmin;
+        left: -1.8vmin;
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+      }
+    }
+
+    i:nth-of-type(2) {
+      z-index: 5;
+      @include shape(3vmin, 1vmin, $main-color);
+      top: -13vmin;
+      left: 7vmin;
+      transform: rotate(-45deg);
+
+      &::before {
+        @include shape(3vmin, 1vmin, $main-color);
+        top: -0.1vmin;
+        left: 0.9vmin;
+        transform: rotate(-22deg);
+      }
+
+      &::after {
+        @include shape(4vmin, 2.2vmin, $main-color);
+        transform: rotate(-100deg);
+        top: 1.6vmin;
+        left: -1.2vmin;
+      }
+    }
+
+    i:nth-of-type(3) {
+      z-index: 5;
+      @include shape(3.5vmin, 5vmin, $main-color);
+      top: -3vmin;
+      left: 9vmin;
+
+      &::before {
+        @include shape(2vmin, 2.3vmin, $bg-color);
+        left: -1.2vmin;
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+      }
+
+      &::after {
+        @include shape(4vmin, 4vmin, $main-color);
+        transform: rotate(32deg);
+        top: 3.3vmin;
+        left: -0.6vmin;
+      }
+    }
+
+    i:nth-of-type(4) {
+      z-index: 5;
+      @include shape(2vmin, 5vmin, $main-color);
+      left: 9.8vmin;
+      top: 9.5vmin;
+
+      &::before {
+        @include shape(1vmin, 2.8vmin, $bg-color);
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+        top: 1.05vmin;
+        left: -0.65vmin;
+        transform: rotate(5deg);
+      }
+    }
+  }
+
+  .body {
+    @include shape(inherit, 13.5vmin, $main-color);
+    top: 59vmin;
+    border-top-right-radius: 11vmin;
+    border-top-left-radius: 8vmin;
+
+    &::before {
+      @include shape(inherit, 14vmin, $bg-color);
+      border-top-right-radius: 12.8vmin;
+      border-top-left-radius: 8vmin;
+      top: -2.2vmin;
+      left: -2.4vmin;
+    }
+
+    &::after {
+      @include shape(12vmin, 26vmin, $main-color);
+      top: -10.5vmin;
+      left: 27vmin;
+      border-top-right-radius: 50%;
+      border-bottom-right-radius: 50%;
+      transform: rotate(18deg);
+    }
+
+    i:nth-of-type(1) {
+      z-index: 2;
+      @include shape(23vmin, 13.8vmin, $main-color);
+      top: -40.3vmin;
+
+      &::before {
+        @include shape(2.7vmin, 2.7vmin, $bg-color);
+        border-radius: 50%;
+        left: 13.9vmin;
+        top: 12.2vmin;
+      }
+
+      &::after {
+        @include shape(1vmin, 3vmin, $bg-color);
+        left: 16.1vmin;
+        top: 12.2vmin;
+        transform: rotate(-45deg);
+      }
+    }
+
+    i:nth-of-type(2) {
+      z-index: 2;
+      @include shape(25vmin, 8vmin, $main-color);
+      border-bottom-right-radius: 50%;
+      border-bottom-left-radius: 50%;
+      top: -23vmin;
+      left: 31vmin;
+      transform: rotate(26deg);
+
+      &::before {
+        @include shape(15vmin, 5vmin, $bg-color);
+        transform: rotate(-26deg);
+        left: 13vmin;
+        top: 5vmin;
+      }
+
+      &::after {
+        @include shape(14vmin, 5vmin, $main-color);
+        left: 11.4vmin;
+        top: 1.8vmin;
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 60%;
+        transform: rotate(-26deg);
+      }
+    }
+  }
+
+  .clothes {
+    @include shape(inherit, 13vmin, $main-color);
+    top: 82vmin;
+    overflow: hidden;
+
+    &::before {
+      @include shape(30vmin, 13vmin, $hair-color);
+    }
+
+    &::after {
+      @include shape(10vmin, 13vmin, $hair-color);
+      right: 0;
+    }
+
+    i:nth-of-type(1) {
+      @include shape(14vmin, 7vmin, $main-color);
+      top: 5vmin;
+      left: -14vmin;
+      border-top-left-radius: 100%;
+      transform: rotate(-25deg);
+      left: -18.2vmin;
+
+      &::before {
+        @include shape(14vmin, 7vmin, $hair-color);
+        border-bottom-right-radius: 100%;
+        top: -6vmin;
+        left: 5vmin;
+        transform: rotate(5deg);
+      }
+    }
+
+    i:nth-of-type(2) {
+      @include shape(1.2vmin, 1.2vmin, $main-color);
+      left: 69.3vmin;
+      top: 5.3vmin;
+      z-index: 2;
+      border-radius: 50%;
+
+      &::before {
+        @include shape(1.8vmin, 10vmin, $main-color);
+        top: -9.5vmin;
+        left: -0.85vmin;
+        transform: rotate(-2deg);
+        border-bottom-left-radius: 0.5vmin;
+      }
+
+      &::after {
+        @include shape(1vmin, 8vmin, $main-color);
+        top: -5.65vmin;
+        left: -2.9vmin;
+        transform: rotate(-50.5deg);
+        border-bottom-left-radius: 0.5vmin;
+      }
+    }
+
+    i:nth-of-type(3) {
+      @include shape(10vmin, 5.5vmin, $main-color);
+      z-index: 2;
+      left: 58vmin;
+      top: -7.5vmin;
+
+      &::before {
+        @include shape(2.7vmin, 4.5vmin, $main-color);
+        left: 7vmin;
+        top: 3.5vmin;
+        transform: rotate(-50deg);
+      }
+
+      &::after {
+        @include shape(1.5vmin, 8vmin, $main-color);
+        top: 4.5vmin;
+        left: 2.6vmin;
+        transform: rotate(-10deg);
+      }
+    }
+
+    i:nth-of-type(4) {
+      @include shape(1.7vmin, 1.7vmin, $hair-color);
+      z-index: 2;
+      border-radius: 50%;
+      left: 56.8vmin;
+      top: -1.3vmin;
+    }
+  }
+}
